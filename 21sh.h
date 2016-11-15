@@ -6,7 +6,7 @@
 /*   By: rlutsch <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/29 14:45:31 by rlutsch           #+#    #+#             */
-/*   Updated: 2016/08/07 14:41:30 by rlutsch          ###   ########.fr       */
+/*   Updated: 2016/11/15 08:17:21 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct	s_l
 	struct s_l	*n;
 }				t_l;
 
+char	*ft_strcpy(char *dst, const char *src);
 void	ft_bzero(void *s, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putchar(char c);
@@ -48,4 +49,8 @@ char	*ft_strdup(const char *s1);
 int		ft_tablen(char **tab);
 char	**ft_strsplit_init(char const *s, char c, int *v, size_t i);
 void	ft_doflag(char c);
+char	*ft_strsub(char const *s, unsigned int start, size_t len);
+void	*ft_memalloc(size_t size);
+char	*ft_strcat(char *s1, const char *s2);
+char	*ft_getpwd(char *av, char *pwd);
 #endif

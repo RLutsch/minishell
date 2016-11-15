@@ -12,12 +12,14 @@
 
 #include "21sh.h"
 
-char	**ft_env(char **env)
+/*char	**ft_env(char **env)
 {
+	extern char **environ;
 	char	**tmp;
 	int		i;
 
 	i = 0;
+	printf("%s\n", "here : ");
 	if (!(tmp = malloc(sizeof(char*) * ft_tablen(env) + 1)))
 		return (NULL);
 	while (env[i])
@@ -27,3 +29,19 @@ char	**ft_env(char **env)
 	}
 	return (tmp);
 }
+*/
+
+char **ft_env(char **env)
+{
+	extern char	**environ;
+	int			i;
+
+	i = 0;
+	i = ft_tablen(environ);
+	while(--i)
+	{
+		printf("%s\n",(environ[i]));
+	}
+	return (env);
+}
+

@@ -12,46 +12,45 @@
 
 #include "21sh.h"
 
-char	**ft_strsplit(char const *s, char c)
+static size_t	ft_count_words(char *s, char c)
 {
-	char	**av;
-	int		v[4];
+	size_t		nb_words;
 
-	av = ft_strsplit_init(s, c, v, -1);
-	v[0] = -1;
-	while (s[++v[0]])
+	while (*s && *s == c)
+		++s;
+	nb_words = (*s ? 1 : 0);
+	while (*s)
 	{
-		if (s[v[0]] != c && v[3] == -1)
-			v[2] += (++v[3] - v[3]) + 1;
-		if (s[v[0]] == c && v[3] == 0)
-			v[1] = --v[3];
-		if (s[v[0]] != c)
-			av[v[2]][++v[1]] = s[v[0]];
+		if (*s == c && s[1] && s[1] != c)
+			++nb_words;
+		++s;
 	}
-	av[v[2] + 1] = 0;
-	return (av);
+	return (nb_words);
 }
 
-char	**ft_strsplit_init(char const *s, char c, int *v, size_t i)
+char			**ft_strsplit(char const *s, char c)
 {
-	char	**av;
+	size_t		nb_words;
+	char		*wrd_begin;
+	char		**result;
 
-	v[0] = 4;
-	while (--v[0])
-		v[v[0]] = 0;
-	while (s[++i])
+	nb_words = ft_count_words((char *)s, c);
+	result = (char **)malloc(sizeof(char *) * (nb_words + 1));
+	if (!result)
+		return (NULL);
+	wrd_begin = (char *)s;
+	while (*s)
 	{
-		if (s[i] != c && (v[2] = v[2] + 1))
-			while (s[i] && s[i] != c && (v[0] = v[0] + 1))
-				i++;
-		if ((v[0] > v[1]) && (v[1] = v[0]))
-			;
+		if (*s == c)
+		{
+			if (wrd_begin != s)
+				*(result++) = ft_strsub(wrd_begin, 0, s - wrd_begin);
+			wrd_begin = (char *)s + 1;
+		}
+		++s;
 	}
-	av = (char **)malloc(sizeof(char *) * v[2] + 2);
-	while ((++v[3] - 1) <= v[2])
-		av[v[3] - 1] = (char *)malloc(sizeof(char) * v[1]);
-	v[0] = 4;
-	while (--v[0])
-		v[v[0]] = -1;
-	return (av);
+	if (wrd_begin != s)
+		*(result++) = ft_strsub(wrd_begin, 0, s - wrd_begin);
+	*result = NULL;
+	return (result - nb_words);
 }
