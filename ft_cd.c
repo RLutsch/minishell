@@ -6,7 +6,7 @@
 /*   By: rlutsch <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/06 13:41:09 by rlutsch           #+#    #+#             */
-/*   Updated: 2016/08/07 14:46:24 by rlutsch          ###   ########.fr       */
+/*   Updated: 2016/11/14 14:24:53 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	*ft_cd(char **av)
 	{
 		pwd = ft_strjoin(pwd, getenv("HOME"));
 		stat(pwd, &statbuf);
+		printf("%s/n", pwd);
 	}
 	else if (av[1])
 		stat(av[1], &statbuf);
@@ -37,5 +38,6 @@ char	*ft_cd(char **av)
 		}
 		x = chdir(pwd);
 	}
+	else ft_putstr("invalid directory\n");
 	return (pwd);
 }
