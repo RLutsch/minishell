@@ -22,7 +22,7 @@ int		main()
 	{
 		ft_putstr("$> ");
 		nb = get_next_line(0, &p);
-		if (p[0] != '\0') {
+		if (p[0] != '\0' && p[0] != ' ') {
 			arg = ft_strsplit(p, ' ');
 			if (ft_strcmp(arg[0], "exit") == 0)
 			{
