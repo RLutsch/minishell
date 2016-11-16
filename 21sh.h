@@ -55,5 +55,6 @@ char	*ft_strcat(char *s1, const char *s2);
 char	*ft_getpwd(char *av, char *pwd);
 char	*ft_getenv(const char *name);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
+void 	ft_free2d(char **arg);
 
 #endif

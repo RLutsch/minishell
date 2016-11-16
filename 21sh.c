@@ -31,11 +31,8 @@ int		main()
 		arg = ft_strsplit(p, ' ');
 		if (ft_strcmp(arg[0], "exit") == 0)
 		{
-			free(arg);
 			return (0);
 		}
 		ft_command(arg);
-		free(p);
-		free(arg);
 	}
 }

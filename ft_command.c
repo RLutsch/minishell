@@ -38,10 +38,7 @@ void	ft_command(char **av)
 				p = ft_strjoin(ft_strjoin(path[i], "/"), av[0]);
 			
 			if(execve(p, av, environ) == -1)
-			{
-				free(path);
 				exit -1;
-			}
 		}
 		ft_putstr("command not found:");
 		ft_putstr(ft_strjoin(av[0], "\n"));
@@ -49,5 +46,4 @@ void	ft_command(char **av)
 	else
 		wait(0);
 	}
-	free(path);
 }

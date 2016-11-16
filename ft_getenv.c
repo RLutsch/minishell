@@ -1,4 +1,5 @@
 #include "21sh.h"
+#include <string.h>
 
 char *ft_getenv(const char *name)
 {
@@ -14,13 +15,12 @@ char *ft_getenv(const char *name)
 	{
         if (ft_strncmp(name, environ[i], ft_strlen(name)) == 0)
         {
-            tmp = malloc(sizeof((ft_strlen(environ[i])-ft_strlen(name)) - 1));
-            tmp = ft_memcpy(tmp, &environ[i][ft_strlen(name) + 1], (ft_strlen(environ[i]) - ft_strlen(name) - 1));
+            tmp = malloc(sizeof((ft_strlen(environ[i])-ft_strlen(name)) -1));
+            tmp = environ[i];
+            while (*tmp++ != '=')
+                ;
             return (tmp);
         }
-        else
-        {
-            return NULL;
-        }
 	}
+    return (0);
 }
