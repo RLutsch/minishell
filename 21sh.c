@@ -25,8 +25,7 @@ int		main()
 	{
 		ft_bzero(p, ft_strlen(p));
 		ft_putstr("$> ");
-		nb = read(0, buf, 255);
-		p = ft_strjoin(p, &buf[0]);
+		nb = get_next_line(0, &p);
 		if (nb != 1)
 			p[nb - 1] = '\0';
 		arg = ft_strsplit(p, ' ');

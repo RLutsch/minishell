@@ -39,8 +39,6 @@ void	ft_command(char **av)
 			
 			if(execve(p, av, environ) == -1)
 			{
-				ft_putstr("command not found:");
-				ft_putstr(ft_strjoin(av[0], "\n"));
 				exit -1;
 			}
 		}
