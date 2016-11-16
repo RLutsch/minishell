@@ -12,7 +12,7 @@
 
 #include "21sh.h"
 
-int		get_next_line(int fd, char **line)
+int		ft_get_next_line(int fd, char **line)
 {
 	t_l			*a[3];
 	static int	x;

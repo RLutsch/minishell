@@ -13,7 +13,6 @@ char *ft_getenv(const char *name)
 	{
         if (ft_strncmp(name, environ[i], ft_strlen(name)) == 0)
         {
-            tmp = malloc(sizeof((ft_strlen(environ[i])-ft_strlen(name)) -1));
             tmp = environ[i];
             while (*tmp++ != '=')
                 ;
@@ -22,3 +21,4 @@ char *ft_getenv(const char *name)
 	}
     return (0);
 }
+

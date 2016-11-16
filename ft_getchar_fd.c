@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   21sh.c                                             :+:      :+:    :+:   */
+/*   ft_getchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlutsch <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/01 13:39:13 by rlutsch           #+#    #+#             */
-/*   Updated: 2016/11/15 07:29:29 by rlutsch          ###   ########.fr       */
+/*   Created: 2016/08/02 12:14:04 by                   #+#    #+#             */
+/*   Updated: 2016/08/16 12:25:04 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "21sh.h"
 
-int		main()
+int		ft_getchar_fd(int fd)
 {
-	int		nb;
-	char	**arg;
-	char	*p;
+	char	c;
 
-	while (1)
+	if (1 != read(fd, &c, 1))
 	{
-		ft_putstr("$> ");
-		nb = get_next_line(0, &p);
-		if (p[0] != '\0') {
-			arg = ft_strsplit(p, ' ');
-			if (ft_strcmp(arg[0], "exit") == 0)
-			{
-				return (0);
-			}
-			if (nb != -1)
-				ft_command(arg);
-		}
+		return (-1);
 	}
+	return ((int)c);
 }
