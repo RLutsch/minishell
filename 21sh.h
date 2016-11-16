@@ -43,7 +43,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 void	ft_putstr(char *c);
 int		get_next_line(int fd, char **l);
 void	ft_command(char **av);
-char	**ft_env(char **env);
+void	**ft_env();
 int		ft_operator(char **av);
 char	*ft_strdup(const char *s1);
 int		ft_tablen(char **tab);

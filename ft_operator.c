@@ -26,7 +26,7 @@ int		ft_operator(char **av)
 	}
 	if (ft_strcmp(av[0], "env") == 0)
 	{	
-		ft_env(av);
+		ft_env();
 		return (0);
 	}
 	if (ft_strcmp(av[0], "setenv") == 0)

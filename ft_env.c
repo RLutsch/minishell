@@ -12,7 +12,7 @@
 
 #include "21sh.h"
 
-char **ft_env(char **env)
+void **ft_env()
 {
 	extern char	**environ;
 	int			i;
@@ -24,6 +24,5 @@ char **ft_env(char **env)
 		ft_putstr(environ[i]);
 		ft_putstr("\n");
 	}
-	return (env);
 }
 
