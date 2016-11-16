@@ -18,5 +18,9 @@ char *ft_getenv(const char *name)
             tmp = ft_memcpy(tmp, &environ[i][ft_strlen(name) + 1], (ft_strlen(environ[i]) - ft_strlen(name) - 1));
             return (tmp);
         }
+        else
+        {
+            return NULL;
+        }
 	}
 }
