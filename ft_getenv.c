@@ -1,5 +1,4 @@
 #include "21sh.h"
-#include <string.h>
 
 char *ft_getenv(const char *name)
 {
