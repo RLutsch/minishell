@@ -24,5 +24,6 @@ void **ft_env()
 		ft_putstr(environ[i]);
 		ft_putstr("\n");
 	}
+	return (0);
 }
 

@@ -19,7 +19,6 @@ void	ft_command(char **av)
 	extern char **environ;
 	char		**path;
 	int			i;
-	int			x;
 
 	i = 0;
 	i = ft_operator(av);
@@ -37,8 +36,8 @@ void	ft_command(char **av)
 			if (ft_strncmp(av[0], "/bin/", 5) != 0)
 				p = ft_strjoin(ft_strjoin(path[i], "/"), av[0]);
 			
-			if(execve(p, av, environ) == -1)
-				exit -1;
+			execve(p, av, environ);
+				
 		}
 		ft_putstr("command not found:");
 		ft_putstr(ft_strjoin(av[0], "\n"));

@@ -14,7 +14,6 @@
 
 int		main()
 {
-	char	buf[255];
 	int		nb;
 	char	**arg;
 	char	*p;
