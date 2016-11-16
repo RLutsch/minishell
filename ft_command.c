@@ -28,7 +28,8 @@ void	ft_command(char **av)
 		kill(father, -1);
 	else if (i != 0)
 	{	
-	path = ft_strsplit(getenv("PATH"), ':');
+	printf("%s\n",ft_getenv("PATH"));
+	path = ft_strsplit(ft_getenv("PATH"), ':');
 	i = ft_tablen(path);
 	father = fork();
 	if (father == 0){

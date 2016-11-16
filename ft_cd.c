@@ -16,6 +16,7 @@ char	*ft_cd(char **av)
 {
 	char		*pwd;
 	struct stat	statbuf;
+	extern char	**environ;
 	
 	pwd = malloc(sizeof(char*) * 256);
 	if (!av[1])
