@@ -16,9 +16,7 @@ char	*ft_cd(char **av)
 {
 	char		*pwd;
 	struct stat	statbuf;
-	int			x;
-
-	x = 0;
+	
 	pwd = malloc(sizeof(char*) * 256);
 	if (!av[1])
 	{
@@ -38,7 +36,7 @@ char	*ft_cd(char **av)
 			pwd = ft_strjoin(pwd, "/");
 			pwd = ft_strjoin(pwd, av[1]);
 		}
-		x = chdir(pwd);
+		chdir(pwd);
 	}
 	else ft_putstr("invalid directory\n");
 //	printf("%s\n old pwd : ", getenv("OLDPWD"));

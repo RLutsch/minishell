@@ -8,7 +8,7 @@ OBJ = 21sh.c ft_command.c ft_get_next_line.c ft_putstr.c ft_strchr.c \
 
 all: 
 	echo Compiling
-	gcc -o minishell $(CFLAGS) $(OBJ)
+	gcc -o minishell $(OBJ)
 	echo Compiling done!
 
 clean:

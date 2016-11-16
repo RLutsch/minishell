@@ -35,6 +35,6 @@ int		main()
 			return (0);
 		}
 		ft_command(arg);
+		free(p);
 	}
-	free(p);
 }

@@ -25,8 +25,10 @@ int		ft_operator(char **av)
 		return (0);
 	}
 	if (ft_strcmp(av[0], "env") == 0)
-		printf("%s\n",ft_env(av)[1]);
+	{	
+		ft_env(av);
 		return (0);
+	}
 	if (ft_strcmp(av[0], "setenv") == 0)
 		return (0);
 	if (ft_strcmp(av[0], "unsetenv") == 0)

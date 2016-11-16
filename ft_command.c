@@ -19,14 +19,17 @@ void	ft_command(char **av)
 	extern char **environ;
 	char		**path;
 	int			i;
+	int			x;
 
 	i = 0;
 	i = ft_operator(av);
+	printf("%d\n", i);
 	father = 0;
 	if (i == 1)
 		kill(father, -1);
 	else if (i != 0)
 	{
+	printf("%s\n", "welkom hier");	
 	path = ft_strsplit(getenv("PATH"), ':');
 	i = ft_tablen(path);
 	father = fork();
@@ -35,7 +38,9 @@ void	ft_command(char **av)
 		{
 			if (ft_strncmp(av[0], "/bin/", 5) != 0)
 				p = ft_strjoin(ft_strjoin(path[i], "/"), av[0]);
-			execve(p, av, environ);
+			printf("%s/n", p);
+			x = execve(p, av, environ);
+			printf("%d/n", x);
 			kill(father, -1);
 		}
 		ft_putstr("command not found:");
