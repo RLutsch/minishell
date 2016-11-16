@@ -30,11 +30,13 @@ int		main()
 		if (nb != 1)
 			p[nb - 1] = '\0';
 		arg = ft_strsplit(p, ' ');
-		if (ft_strcmp(arg[0], "exit") == 0){
+		if (ft_strcmp(arg[0], "exit") == 0)
+		{
 			free(arg);
 			return (0);
 		}
 		ft_command(arg);
 		free(p);
+		free(arg);
 	}
 }
