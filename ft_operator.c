@@ -29,8 +29,11 @@ int		ft_operator(char **av)
 		ft_env();
 		return (0);
 	}
-	if (ft_strcmp(av[0], "setenv") == 0)
+	if (ft_strcmp(av[0], "export") == 0)
+	{
+		ft_export(av[1]);
 		return (0);
+	}
 	if (ft_strcmp(av[0], "unsetenv") == 0)
 		return (0);
 	if (ft_strcmp(av[0], "exit") == 0)

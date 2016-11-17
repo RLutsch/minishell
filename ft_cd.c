@@ -26,21 +26,17 @@ char	*ft_cd(char **av)
 	else if (av[1])
 		stat(av[1], &statbuf);
 	printf("%d\n", ft_strcmp(av[1], "-"));
-	if (((S_ISDIR(statbuf.st_mode)) == 1) || (ft_strcmp(av[1],"-") == 0))
+	if ((S_ISDIR(statbuf.st_mode)) == 1)
 	{
 		if (av[1])
 		{
 			pwd = ft_getpwd(av[1], pwd);
-			//pwd = getcwd(pwd, 256);
-			printf("%s\n", pwd);
 			pwd = ft_strjoin(pwd, "/");
 			pwd = ft_strjoin(pwd, av[1]);
 		}
 		chdir(pwd);
 	}
 	else ft_putstr("invalid directory\n");
-//	printf("%s\n old pwd : ", getenv("OLDPWD"));
-	printf("%s\n current pwd : ", getenv("OLDPWD"));
 	return (pwd);
 }
 
@@ -54,7 +50,9 @@ char	*ft_getpwd(char *av, char *pwd)
 	}
 	else
 	{
-		pwd = getcwd(pwd, 256);
+		printf("%s\n", ft_getenv("OLDPWD"));
+		pwd = ft_getenv("OLDPWD");
+		chdir(pwd);
 	}
 	return (pwd);
 }

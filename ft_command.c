@@ -35,8 +35,9 @@ void	ft_command(char **av)
 		{
 			if (ft_strncmp(av[0], "/bin/", 5) != 0)
 				p = ft_strjoin(ft_strjoin(path[i], "/"), av[0]);
-			
-			if (!(execve(p, av, environ))) {
+			if (!(execve(p, av, environ))) 
+			{
+				free(path);
 				exit(EXIT_FAILURE);
 			}
 				
@@ -47,4 +48,5 @@ void	ft_command(char **av)
 	else
 		wait(0);
 	}
+	free (path);
 }

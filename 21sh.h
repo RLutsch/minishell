@@ -12,8 +12,7 @@
 
 #ifndef _21SH_H
 # define _21SH_H
-# define BUF_SIZE = 50
-# define BUFFSIZE 2048
+# define BUFFSIZE 1
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/wait.h>
@@ -59,5 +58,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void 	ft_free2d(char **arg);
 int		ft_getchar_fd(int fd);
 void	*ft_realloc(void *ptr, size_t n);
+int     ft_export(char *pram);
 
 #endif

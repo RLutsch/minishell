@@ -26,11 +26,16 @@ int		main()
 			arg = ft_strsplit(p, ' ');
 			if (ft_strcmp(arg[0], "exit") == 0)
 			{
+				free(arg);
+				free(p);
 				return (0);
 			}
 			if (nb != -1)
 				ft_command(arg);
+		 
 		}
+		free(p);
+		free(arg);
 	}
 }
  //ffs

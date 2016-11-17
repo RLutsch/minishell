@@ -19,5 +19,6 @@ int	ft_tablen(char **tab)
 	i = 0;
 	while (tab[i])
 		i++;
+	i--;
 	return (i);
 }
